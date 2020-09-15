@@ -1,0 +1,23 @@
+package java0914;
+
+class Animal{
+	String a = new String();
+	Animal() {
+		a = 0;
+	}
+	void ani(String a) {
+		String b = this.a;
+		b = a;
+		System.out.println(b);
+	}
+}
+
+public class Ex {
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

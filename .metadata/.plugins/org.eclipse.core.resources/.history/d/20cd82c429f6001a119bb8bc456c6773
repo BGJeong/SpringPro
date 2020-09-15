@@ -1,0 +1,42 @@
+package java0914;
+
+class CarDemo{
+	String name;
+	int number;
+	
+	public CarDemo() {
+		this.name = "이름없음";
+		this.number = 1;
+	}
+	public CarDemo(String a) {
+		this.name = a;
+		this.number = 0;
+	}
+	public CarDemo(String a, int b) {
+		this.name = a;
+		this.number = b;
+	}
+	public CarDemo(int a) {
+		this.name = "이름없음";
+		this.number = a;
+	}
+	public void Car2() {
+		System.out.println();
+	}
+}
+
+public class Car {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CarDemo Car = new CarDemo(1);
+		CarDemo Car2 = new CarDemo("소방차");
+		CarDemo Car3 = new CarDemo();
+		CarDemo Car4 = new CarDemo("경찰차",1);
+		System.out.println(Car.name +" " +Car.number);
+		System.out.println(Car2.name +" " +Car2.number);
+		System.out.println(Car3.name +" " +Car3.number);
+		System.out.println(Car4.name +" " +Car4.number);
+	}
+
+}

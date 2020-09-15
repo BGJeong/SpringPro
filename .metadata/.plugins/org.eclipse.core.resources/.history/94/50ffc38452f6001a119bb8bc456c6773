@@ -1,0 +1,40 @@
+package java0914;
+
+import java.util.Scanner;
+
+class MemberIn{
+	String name, age, email, addr;
+	public MemberIn() {
+		System.out.println("이름, 나이, 이메일, 주소를 입력");
+		Scanner scan = new Scanner(System.in);
+		name = scan.nextLine();
+		age = scan.nextLine();
+		email = scan.nextLine();
+		addr = scan.nextLine();
+	}
+	public void input() {
+		System.out.println(name+" "+ age+" "+ email+" "+ addr);
+	}
+}
+class MemberIn{
+	String name, age, email, addr;
+	public MemberInfo(String name, String age, String email, String addr) {
+		this.name = name;
+		this.age = name;
+		this.email = name;
+		this.addr = name;
+	}
+	void output() {
+		
+	}
+}
+
+public class Exam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MemberInput meminput = new MemberInput();
+		meminput.input();
+	}
+
+}
