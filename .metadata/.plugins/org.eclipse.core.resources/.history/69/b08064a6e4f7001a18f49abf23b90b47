@@ -1,0 +1,14 @@
+package java0916;
+
+import java.text.DecimalFormat;
+
+public class Exam2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int r = 5;
+		DecimalFormat df = new DecimalFormat();
+		df.applyPattern(0.###);
+	}
+
+}

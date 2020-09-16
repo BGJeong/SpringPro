@@ -14,6 +14,9 @@ public class Shared {
         
         sc2.number++;
         System.out.println("sc2.number = " + sc2.number);
+        
+        StaticCount.number++;
+        System.out.println(StaticCount.number);
     }
 }
             
