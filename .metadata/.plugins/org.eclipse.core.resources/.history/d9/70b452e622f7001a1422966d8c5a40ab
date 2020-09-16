@@ -1,0 +1,22 @@
+package java0915;
+class Calculator2{
+	double areaRectangle(double width) {
+		return width * width;
+	}
+	double areaRectangle(double width, double height) {
+		return width * height;
+	}
+}
+public class CalculatorEx2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Calculator2 cal = new Calculator2();
+		cal.areaRectangle(10);
+		cal.areaRectangle(10, 20);
+		System.out.println(cal.areaRectangle(10);
+		);
+		
+	}
+
+}
