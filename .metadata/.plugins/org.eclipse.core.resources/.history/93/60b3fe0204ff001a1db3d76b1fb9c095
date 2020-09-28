@@ -1,0 +1,15 @@
+package java0925;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class UserDAO {
+
+	ArrayList<UserVO> uservo ;
+	public void userDAO() {
+		uservo = new ArrayList<UserVO>();
+	}
+	public void join(Scanner scan) {
+		
+	}
+}

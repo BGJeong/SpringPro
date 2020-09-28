@@ -1,0 +1,55 @@
+package java0925;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Exam2{
+	private String name;
+	private String nickname;
+	private int age;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	
+}
+
+public class Exam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		if("java".equals("java")) {
+			System.out.println("같은값");
+		}else {
+			System.out.println("다른값");
+		}
+		
+//		List list = new ArrayList();
+//		list.add("자바");
+//		list.add("2");
+//		list.add("4");
+//		list.add("잡아");
+//		list.add("조보");
+//		for(int i = 0 ; i < list.size(); i++) {
+//			String str = (String)list.get(i);
+//			System.out.println(str);
+//		}
+		
+		}
+	}
+}

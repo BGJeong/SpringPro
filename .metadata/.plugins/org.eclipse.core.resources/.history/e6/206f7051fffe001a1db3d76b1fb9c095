@@ -1,0 +1,42 @@
+package java0925;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+class TreeSetLotto {
+	public void TreeSetLotto2() {
+		Set<Integer> set = new TreeSet<Integer>();
+		for (int i = 0; set.size() < 6; i++) {
+			int num = (int) (Math.random() * 45 + 1);
+			set.add(num);
+		}
+		System.out.println(set);
+	}
+}
+class HashSetLotto {
+	public void HashSetLotto2() {
+		Set<Integer> set = new HashSet<Integer>();
+		while(set.size() < 6) {
+			int num = (int)(Math.random() * 45 + 1);
+			set.add(num);
+		}
+		ArrayList<Integer> li = new ArrayList<Integer>(set);
+		Collections.sort(li);
+		System.out.println(li);
+	}
+}
+
+public class Exam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TreeSetLotto tsl = new TreeSetLotto();
+		tsl.TreeSetLotto2();
+		HashSetLotto hsl = new HashSetLotto();
+		hsl.HashSetLotto2();
+	}
+}

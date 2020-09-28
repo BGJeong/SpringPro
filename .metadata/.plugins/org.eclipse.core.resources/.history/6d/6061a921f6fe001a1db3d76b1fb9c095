@@ -1,0 +1,59 @@
+package java0925;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Exam2{
+	private String name;
+	private String nickname;
+	private int age;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	
+}
+
+public class Exam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		ArrayList<Exam2> li = new ArrayList<Exam2>();
+//		String name, nick;
+//		int age;
+//		Exam2 ex = new Exam2();
+//		name = "java";
+//		nick = "hoho";
+//		age = 1;
+//		ex.setName(name);
+//		ex.setNickname(nick);
+//		ex.setAge(age);
+//		li.add(ex);
+//		for(Exam2 i : li) {
+//			System.out.println(ex.getName());
+//			System.out.println(ex.getAge());
+//			System.out.println(ex.getNickname());
+//		}
+		List<String> ls = new ArrayList<String>();
+		ls.add("hi");
+		ls.add("oh");
+		for(String i : ls) {
+			System.out.println(ls.get(i));
+		}
+	}
+}

@@ -1,0 +1,26 @@
+package java0928;
+
+import java.util.List;
+import java.util.Vector;
+
+class Board{
+	String subject;
+	String content;
+	String writer;
+	
+	public Board(String subject, String content, String writer) {
+		this.subject = subject;
+		this.content = content;
+		this.writer = writer;
+	}
+}
+
+public class VectorEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<Board> = new Vector<Board>();
+		
+	}
+
+}

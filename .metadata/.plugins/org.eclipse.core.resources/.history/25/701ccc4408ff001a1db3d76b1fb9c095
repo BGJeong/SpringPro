@@ -1,0 +1,25 @@
+package java0925;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+//이름 비번 나이
+public class UserDAO {
+
+	ArrayList<UserVO> uservo ;
+	public void userDAO() {
+		uservo = new ArrayList<UserVO>();
+	}
+	public void join(Scanner scan) {
+		UserVO user = new UserVO();
+		System.out.println("id입력 : ");
+		String userId = scan.nextLine();
+		user.setUserId(userId);
+		System.out.println("비번입력 : ");
+		String userPwd = scan.nextLine();
+		user.setUserPwd(userPwd);
+		System.out.println("나이입력 : ");
+		String userAge = scan.nextLine();
+		user.setAge(Integer.parseInt(userAge));
+		uservo.add(user);
+	}
+}
