@@ -8,7 +8,6 @@
 <fullyQualifiedTypeName name="java0914.FieldInitValue"/>
 <fullyQualifiedTypeName name="java0914.MemberInfo"/>
 <fullyQualifiedTypeName name="java0914.MemberInput"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java0915.Calculator"/>
 <fullyQualifiedTypeName name="java0915.Computer"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
@@ -21,6 +20,10 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java0925.HashSetLotto"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java0929.howlikethat"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
 </qualifiedTypeNameHistroy>

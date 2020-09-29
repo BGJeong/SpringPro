@@ -1,0 +1,19 @@
+package java0929;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class ThreadEx2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		while(true) {
+			Date d = new Date();
+			System.out.println(sd.format(d));
+
+		}
+	}
+
+}
