@@ -8,7 +8,9 @@ public class JDBC_Connect02{
 
 /** ORACLE JDBC Driver Test *****************************************/
 	String driver = "oracle.jdbc.driver.OracleDriver"; 
-	String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String name = "scott";
+	String passWord = "tiger";
 /*******************************************************************/
 
 /** My-SQL JDBC Driver *********************************************/
@@ -23,7 +25,7 @@ public class JDBC_Connect02{
       Class.forName(driver);
 
 /**   ORACLE에서 Connection 객체 ***********************************/
-    con = DriverManager.getConnection(url, "scott", "tiger" );
+    con = DriverManager.getConnection(url, name, passWord );
 /*******************************************************************/
 
 /**   My-SQL에서 Connection 객체 ***********************************/
