@@ -9,16 +9,16 @@ public class ThrowsExceptionHandling1 {
 		System.out.println(result);
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// 객체를 생성
 		ThrowsExceptionHandling1 te = new ThrowsExceptionHandling1();
 
 		// try-catch 블록으로 예외 처리
-		try {
+//		try {
 			te.occurException();
-		} catch (Exception ae) {
-			System.out.println("Exception이 발생 : " + ae.toString());
-			System.out.println("0으로 나눌 수 없습니다.");
-		}
+//		} catch (Exception ae) {
+//			System.out.println("Exception이 발생 : " + ae.toString());
+//			System.out.println("0으로 나눌 수 없습니다.");
+//		}
 	}
 }

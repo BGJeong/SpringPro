@@ -1,8 +1,0 @@
-package java0925;
-
-public class UserMain {
-
-	public static void main(String[] args) {
-		
-	}
-}
