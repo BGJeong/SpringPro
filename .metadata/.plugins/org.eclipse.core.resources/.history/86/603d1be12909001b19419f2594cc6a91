@@ -1,0 +1,17 @@
+select * from CUSTOMER;
+select * from seq;
+desc customer
+delete from customer;
+alter table customer add(address varchar2(50));
+
+alter table customer add(reg_date timestamp);
+
+create sequence customer_no_seq
+	start with 1
+	increment by 1;
+	
+create table mem01(name  varchar2(20),
+	   email  varchar2(20),
+	   phone  varchar2(20));
+	   
+select * from mem01
