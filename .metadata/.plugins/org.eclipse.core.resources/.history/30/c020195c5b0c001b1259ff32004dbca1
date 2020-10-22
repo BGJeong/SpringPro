@@ -1,0 +1,13 @@
+package java1012;
+
+public class Snippet {
+	
+	create table board(
+		no number primary key,
+		writer varchar2(20) not null,
+	             passwd varchar2(20) not null,
+		subject varchar2(100) not null,
+		content varchar2(1000) not null,
+		reg_date timestamp );
+}
+
