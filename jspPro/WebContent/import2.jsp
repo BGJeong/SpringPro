@@ -6,5 +6,8 @@
 	Random r = new Random();
 	int ran = r.nextInt(45)+1;
 
+	String a = (String)session.getAttribute("name");
+	
 %>
 <%= ran%>
+<%= a%>

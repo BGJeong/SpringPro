@@ -1,4 +1,4 @@
-* request ╟╢ц╪©║╪╜ юзаж ╩Г©Кго╢б method
+* request О©╫О©╫ц╪О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫о╢О©╫ method
 
 void        setCharacterEncoding(String env);
 
@@ -8,6 +8,7 @@ String[]    getParameterValues(String name);
 
 String      getRemoteAddr();
 
-©Дц╩ URI = <%= request.getRequestURI() %>
+О©╫О©╫ц╩ URI = <%= request.getRequestURI() %>
 
-даеь╫╨ф╝ ╟Ф╥н = <%= request.getContextPath() %> 
+О©╫О©╫О©╫ь╫О©╫ф╝ О©╫О©╫О©╫ = <%= request.getContextPath() %>
+ 

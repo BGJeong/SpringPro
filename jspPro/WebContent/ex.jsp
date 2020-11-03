@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method = "post" action = "hi.jsp">
+	<form method = "post" action = "import2.jsp">
 		<table>
 			<tr>
 				<th>이름</th>
