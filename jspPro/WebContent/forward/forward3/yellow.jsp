@@ -3,6 +3,7 @@
 <%
    String name = request.getParameter("name");
    String selectedColor = request.getParameter("selectedColor");
+   
 %>
 
 <h2>포워딩되는 페이지 - <%=selectedColor+".jsp"%></h2>
