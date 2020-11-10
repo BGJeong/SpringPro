@@ -5,7 +5,7 @@
   Connection con=null;
 
   try{
-
+	
 /***************** My-SQL 연결 설정하는 부분 *****************************/
 /*     String driver = "com.mysql.jdbc.Driver";
 
@@ -22,7 +22,7 @@
     String dbId = "scott";
     String dbPass = "tiger";
 /************************************************************************/
-
+	
 
 	Class.forName(driver);
 	con=DriverManager.getConnection(jdbcUrl,dbId ,dbPass );

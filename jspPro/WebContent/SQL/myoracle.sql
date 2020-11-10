@@ -1,3 +1,5 @@
+select * from tab;
+
 create  table  member2( id varchar2(12) primary key,
                                passwd varchar2(12) not null,
 			name varchar2(10) not null,
@@ -8,8 +10,6 @@ create  table  member2( id varchar2(12) primary key,
 			reg_date date not null);
 
 
-
-
-JavaBeanMember.register - LogonDataBean.java (DTO)
-
-JavaBeanMember.register - LogonDBBean.java (DAO)
+insert into member2 values ('a','b','c','d','e','f','g',sysdate);
+		
+select * from member2;
