@@ -7,9 +7,9 @@
 
 <%
 	String userID = null;
-		if (session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-		}
+	if (session.getAttribute("userID") != null) {
+		userID = (String) session.getAttribute("userID");
+	}
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일 HH시mm분ss초 E");
 	int pageSize = 10;
 	String pageNum = request.getParameter("pageNum");
@@ -96,7 +96,7 @@
 						if (startPage > pageBlock) {
 					%>
 							<li class="page-item">
-								<a href="boardList.jsp?pageNum=<%=startPage - 10%>" class="page-link">Previous</a>
+								<a href="boardList.jsp?pageNum=<%=startPage - 1%>" class="page-link">Previous</a>
 							</li>
 					<%
 						} else {
@@ -110,7 +110,7 @@
 						for (int i = startPage; i <= endPage; i++) {
 							if (i == currentPage) {
 					%>
-								<li class="page-item disabled">
+								<li class="page-item active">
 									<a href="#" class="page-link" aria-disabled="true"><%=i%></a>
 								</li>
 

@@ -14,7 +14,7 @@ public class BbsDAO {
 	ResultSet rs;
 	StringBuffer query;
 	private static BbsDAO instance;
-
+	private BbsDAO() {}
 	public static BbsDAO getInstance() {
 		if (instance == null) {
 			instance = new BbsDAO();
@@ -79,15 +79,14 @@ public class BbsDAO {
 	}
 	
 	public int getCount() throws Exception {
-		int count = 0;
 		query = new StringBuffer("select count(*) from board2");
 		conn = getConnection();
 		pstmt = conn.prepareStatement(query.toString());
 		rs = pstmt.executeQuery();
 		if(rs.next()) {
-			count = rs.getInt(1);
+			return rs.getInt(1);
 		}
-		return count;
+		return 0;
 	}
 	
 	public BbsDTO getView(int Bbsid) throws Exception {
@@ -126,7 +125,7 @@ public class BbsDAO {
 
 	public int deleteAction(int bbsid) throws Exception {
 		int result = 0;
-		query = new StringBuffer("delete from board2 where bbsid= ?");
+		query = new StringBuffer("update board2 set bbsavailable=1 where bbsid = ?");
 		conn = getConnection();
 		pstmt=conn.prepareStatement(query.toString());
 		pstmt.setInt(1, bbsid);

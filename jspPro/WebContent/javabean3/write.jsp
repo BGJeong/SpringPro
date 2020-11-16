@@ -47,6 +47,8 @@
 				</tr>
 			</table>
 			<input type="submit" value="작성" class="btn btn-dark pull-right">
+			<input type="reset" value="취소" class="btn btn-dark pull-right">
+			
 		</form>
 	</div>
 </body>
