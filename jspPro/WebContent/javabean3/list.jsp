@@ -4,36 +4,44 @@
 <%@ page import="JavaBeanMember.register.LogonDBBean"%>
 <%@ page import="JavaBeanMember.register.LogonDataBean"%>
 <%@ page import="java.util.*"%>
+<%
+	String userID = null;
+	if (session.getAttribute("userID") != null) {
+		userID = (String) session.getAttribute("userID");
+	}
+	LogonDBBean manager = LogonDBBean.getInstance();
+	List<LogonDataBean> li = manager.selectMember();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일 HH시mm분ss초 E");
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<% String userID = null;
-		if(session.getAttribute("userID") != null){
-			userID = (String) session.getAttribute("userID");			
-		}
-		LogonDBBean manager = LogonDBBean.getInstance();
-		List<LogonDataBean> li = manager.selectMember();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일 HH시mm분ss초 E");
-		LogonDataBean db;
-		%>
-		
-		
-<html>
-<head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>회원 목록</title>
 </head>
 <body>
 	<div class="container">
-	<%if(userID == null) {%>
+		<%
+			if (userID == null) {
+		%>
 		<a href="registerForm.jsp" class="btn">회원가입</a> 
-		<a href="login.jsp?id=<%=db.getId()%>&passwd=<%=db.getPasswd() %>" class="btn">로그인</a>
-	<%}else { %>
-		<a href="logout.jsp" class="btn">로그아웃</a>	
-	<%} %>	
+		<a href="login.jsp" class="btn">로그인</a>
+		<a href="write.jsp" class="btn">글쓰기</a>
+			
+		<%
+			} else {
+		%>
+		<a href="logoutAction.jsp" class="btn">로그아웃</a>
+		<a href="myPage.jsp" class="btn">마이페이지</a>
+		<a href="write.jsp" class="btn">글쓰기</a>
+		<%
+			}
+		%>
 		<table class="table" align=center>
 			<tr>
 				<td>ID</td>
@@ -48,10 +56,8 @@
 			</tr>
 
 			<%
-				
-
-			for (int i = 0; i < li.size(); i++) {
-				db = (LogonDataBean) li.get(i);
+				for (int i = 0; i < li.size(); i++) {
+				LogonDataBean db = (LogonDataBean) li.get(i);
 			%>
 			<tr>
 				<td><%=db.getId()%></td>

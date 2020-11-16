@@ -17,8 +17,6 @@
 	LogonDBBean manager = LogonDBBean.getInstance();
 
 	LogonDataBean old = manager.updateForm(regBean.getId());
-	System.out.println(old.getPasswd());
-	System.out.println(regBean.getPasswd());
 	if(old.getPasswd().equals(regBean.getPasswd())){	
 		manager.delete(regBean);
 		

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class LogonDBBean {
 
@@ -31,34 +32,33 @@ public class LogonDBBean {
 	}
 
 	public void disconnection() throws Exception {
-		if (rs != null) {
-			rs.close();
-		}
-		pstmt.close();
-		conn.close();
+		if (rs != null)	rs.close();
+		if (pstmt != null) pstmt.close();
+		if (conn != null) conn.close();
 	}
 
-	public int insertMember(LogonDataBean ldb) throws Exception {
-		conn = getConnection();
+	public int insertMember(LogonDataBean user) throws Exception {
+		int result = 0;
 		query = new StringBuffer("insert into member2"); 
 		query.append(" values(?, ?, ?, ?, ?, ?, ?, sysdate)");
+		conn = getConnection();
 		pstmt = conn.prepareStatement(query.toString());
-		pstmt.setString(1, ldb.getId());
-		pstmt.setString(2, ldb.getPasswd());
-		pstmt.setString(3, ldb.getName());
-		pstmt.setString(4, ldb.getJumin1());
-		pstmt.setString(5, ldb.getJumin2());
-		pstmt.setString(6, ldb.getEmail());
-		pstmt.setString(7, ldb.getBlog());
-		int result = pstmt.executeUpdate();
+		pstmt.setString(1, user.getId());
+		pstmt.setString(2, user.getPasswd());
+		pstmt.setString(3, user.getName());
+		pstmt.setString(4, user.getJumin1());
+		pstmt.setString(5, user.getJumin2());
+		pstmt.setString(6, user.getEmail());
+		pstmt.setString(7, user.getBlog());
+		result = pstmt.executeUpdate();
 		disconnection();
 		return result;
 	}
 
 	public ArrayList<LogonDataBean> selectMember() throws Exception {
-		conn = getConnection();
 		ArrayList<LogonDataBean> list = new ArrayList<LogonDataBean>();
 		query = new StringBuffer("select * from member2");
+		conn = getConnection();
 		pstmt = conn.prepareStatement(query.toString());
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
@@ -78,9 +78,9 @@ public class LogonDBBean {
 	}
 
 	public LogonDataBean updateForm(String id) throws Exception {
-		conn = getConnection();
 		query = new StringBuffer("select * from member2");
 		query.append(" where id = ?");
+		conn = getConnection();
 		pstmt = conn.prepareStatement(query.toString());
 		LogonDataBean user = new LogonDataBean();
 		pstmt.setString(1, id);
@@ -100,11 +100,12 @@ public class LogonDBBean {
 	}
 	
 	public int update(LogonDataBean bean) throws Exception {
-		conn = getConnection();
+		int result = 0;
 		query = new StringBuffer("UPDATE member2 ");
 		query.append("SET passwd = ?, name = ?, jumin1 = ?, jumin2 = ?");
 		query.append(", email = ?, blog = ?, reg_date=sysdate ");
 		query.append("WHERE id = ? ");
+		conn = getConnection();
 		pstmt = conn.prepareStatement(query.toString());
 		pstmt.setString(1, bean.getPasswd());
 		pstmt.setString(2, bean.getName());
@@ -113,26 +114,27 @@ public class LogonDBBean {
 		pstmt.setString(5, bean.getEmail());
 		pstmt.setString(6, bean.getBlog());
 		pstmt.setString(7, bean.getId());
-		int result = pstmt.executeUpdate();
+		result = pstmt.executeUpdate();
 		disconnection();
 		return result;
 	}
 	
 	public int delete(LogonDataBean bean) throws Exception {
-		conn = getConnection();
+		int result = 0;
 		query = new StringBuffer("DELETE FROM member2 ");
 		query.append("where id = ?");
+		conn = getConnection();
 		pstmt = conn.prepareStatement(query.toString());
 		pstmt.setString(1, bean.getId());
-		int result = pstmt.executeUpdate();
+		result = pstmt.executeUpdate();
 		disconnection();
 		return result;
 	}
 	
 	public int login(String id, String passwd) throws Exception {
-		conn = getConnection();
 		query = new StringBuffer("select passwd from member2");
 		query.append(" where id = ?");
+		conn = getConnection();
 		pstmt = conn.prepareStatement(query.toString());
 		pstmt.setString(1, id);
 		rs = pstmt.executeQuery();
@@ -145,6 +147,27 @@ public class LogonDBBean {
 		}
 		disconnection();
 		return -1;
+	}
+	
+	public LogonDataBean myPage(String id) throws Exception{
+		query = new StringBuffer("select * from member2 where id = ?");
+		LogonDataBean user = new LogonDataBean();
+		conn = getConnection();
+		pstmt = conn.prepareStatement(query.toString());
+		pstmt.setString(1, id);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			user.setId(rs.getString(1));
+			user.setPasswd(rs.getString(2));
+			user.setName(rs.getString(3));
+			user.setJumin1(rs.getString(4));
+			user.setJumin2(rs.getString(5));
+			user.setEmail(rs.getString(6));
+			user.setBlog(rs.getString(7));
+			user.setReg_date(rs.getTime(8));
+		}
+		disconnection();
+		return user;
 	}
 }
 

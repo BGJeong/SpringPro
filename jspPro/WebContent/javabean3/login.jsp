@@ -15,10 +15,10 @@
 	<div class="wrapper">
 		<form class="form-signin" method="post" action="loginAction.jsp">
 			<h2 class="form-signin-heading">Please login</h2>
-			<input type="text" class="form-control" name="username"
+			<input type="text" class="form-control" name="id"
 				placeholder="Email Address" required="" autofocus="" /> 
 			<input
-				type="password" class="form-control" name="password"
+				type="password" class="form-control" name="passwd"
 				placeholder="Password" required="" /> 
 				<label class="checkbox"></label>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>

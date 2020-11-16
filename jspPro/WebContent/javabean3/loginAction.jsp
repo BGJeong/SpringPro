@@ -21,37 +21,29 @@
 	}
 	LogonDBBean bean = LogonDBBean.getInstance();
 	int result = bean.login(user.getId(), user.getPasswd());
-	System.out.println(user.getId());
-	System.out.println(user.getPasswd());
-	System.out.println(result);
+	if (result == 1) {
+		session.setAttribute("userID", user.getId());
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("location.href = 'list.jsp'");
+		script.println("</script>");
+	}
 	
-	 if(result == 1)
-	 {
-		 session.setAttribute("userID", user.getId());
-		 PrintWriter script = response.getWriter();
-		 script.println("<script>");
-		 script.println("location.href = 'list.jsp'");
-		 script.println("</script>"); 
-	 }
-	 
-	 else if(result == 0)
-	 {
-		 PrintWriter script = response.getWriter();
-		 script.println("<script>");
-		 script.println("alert('비밀번호가 틀립니다.')");
-		 script.println("history.back()"); //이전 페이지로 돌려보냄(login 페이지)
-		 script.println("</script>");
-	 }
-	 
-	 else if(result == -1)
-	 {
-		 PrintWriter script = response.getWriter();
-		 script.println("<script>");
-		 script.println("alert('존재하지 않는 아이디입니다!!')");
-		 script.println("history.back()"); //이전 페이지로 돌려보냄(login 페이지)
-		 script.println("</script>");
-	 }
-
+	else if (result == 0) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('비밀번호가 틀립니다.')");
+		script.println("history.back()"); //이전 페이지로 돌려보냄(login 페이지)
+		script.println("</script>");
+	}
+	
+	else if (result == -1) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('존재하지 않는 아이디입니다!!')");
+		script.println("history.back()"); //이전 페이지로 돌려보냄(login 페이지)
+		script.println("</script>");
+	}
 %>
 
 <html>

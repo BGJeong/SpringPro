@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="open"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="System"/>
+			<item value="board"/>
 			<item value="open"/>
 			<item value="state"/>
 			<item value="서버가"/>
