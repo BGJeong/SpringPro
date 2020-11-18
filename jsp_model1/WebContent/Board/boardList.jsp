@@ -50,21 +50,11 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link"
+					<li class="nav-item"><a class="nav-link"
 						href="../index.jsp">Home <span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item active"><a class="nav-link"
 						href="boardList.jsp">board</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> Dropdown </a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Action</a> <a
-								class="dropdown-item" href="#">Another action</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div></li>
 					<li class="nav-item"><a class="nav-link disabled" href="#"
 						tabindex="-1" aria-disabled="true">Disabled</a></li>
 				</ul>
@@ -95,7 +85,7 @@
 			<div class="col-6"><h1>게시판 목록</h1></div>
 			<div class="col-4"></div>
 			<div class="col-2">
-				<input class="btn btn-dark" type="button" value="글작성" onclick="location.href='write.jsp'">
+				<input class="btn btn-dark" type="button" value="글작성" onclick="location.href='write.jsp?pageNum=<%=pageNum%>'">
 			</div>
 			<table class="table table-striped mt-2" style="text-align: center;">
 				<thead class="thead-dark">
@@ -109,13 +99,13 @@
 				<tbody>
 					<%
 						if (count > 0) {
-						for (int i = 0; i < list.size(); i++) {
-							BoardDTO board = (BoardDTO) list.get(i);
+							for (int i = 0; i < list.size(); i++) {
+								BoardDTO board = (BoardDTO) list.get(i);
 					%>
 							<tr>
 								<th scope="col"><%=board.getBoardid()%></th>
 								<td>
-									<a href="view.jsp?Boardid=<%=board.getBoardid()%>&pageNum=<%=pageNum%>"><%=board.getBoardtitle()%></a>
+									<a class="btn btn-right btn-block" href="view.jsp?Boardid=<%=board.getBoardid()%>&pageNum=<%=pageNum%>"><%=board.getBoardtitle()%></a>
 								</td>
 								<td><%=board.getMem_uid()%></td>
 								<td><%=sdf.format(board.getReg_date_board())%></td>

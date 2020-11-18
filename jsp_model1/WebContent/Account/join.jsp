@@ -51,31 +51,56 @@
 		
 	</div>
 </form>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 <script>
 $(function(){
 	$('#id').blur(function(){
-		if($("#id").val().length == 0) {
+		var uid = $("#id").val();
+		if(uid.length == 0) {
 			$(".id_label").text("아이디를 입력하세요");
 			$(".id_label").css('color', 'red');
 			$(".id_label").css('display', 'block');
-			this.focus();
-			$('#register').prop('disabled', true);
-			return;
+			$("#id").val("").focus();
+			return false;
+		} else{
+			$(".id_label").css('display', 'none');
 		}
-		if($("#id").val().length <5 || $("#id").val().length > 13) {
+		if(uid.length <5 || uid.length > 13) {
 			$(".id_label").text("아이디는 5~13자로 입력하세요");
 			$(".id_label").css('color', 'red');
 			$(".id_label").css('display', 'block');
-			this.focus();
-			$('#register').prop('disabled', true);
-			return;
+			$("#id").val("").focus();
+			return false;
 		} else {
 			$(".id_label").css('display', 'none');
-			$('#register').prop('disabled', false);
 		}
+		if(!(validate_userid(uid))){
+			$(".id_label").text('아이디는 소문자,숫자 조합만 가능합니다');
+			$(".id_label").css('color', 'red');
+			$(".id_label").show();
+			$("#id").val("").focus();
+			return false;
+		};
+		$.ajax({
+			url: "idcheck.jsp",
+			type: "post",
+			data: {"username": uid},
+			success: function(msg){
+				if(msg == 0){
+					$('.id_label').show();
+					$('.id_label').css('color', 'green');
+					$('.id_label').text('사용가능한 아이디입니다.');
+					return false;
+				} else {
+					$('.id_label').show();
+					$('.id_label').css('color', 'red');
+					$('.id_label').text('중복된 아이디가 있습니다.');
+					return false;
+				}	
+			}
+		});
 	});
 			
 	$("#pawdcf").blur(function(){
@@ -84,17 +109,19 @@ $(function(){
 			$(".pawdcf_label").css('color','red');
 			$(".pawdcf_label").css('display','block');
 			$("#pawd").val("");
+			$("#pawdcf").val("");
 			$("#pawd").focus();
-			$('#register').prop('disabled', true);
 			return;
 		}else{
 			$(".pawdcf_label").text("");
 			$(".pawdcf_label").css('display','none');
-			$('#register').prop('disabled', false);
-			
 		}
 	});
 });
 
+function validate_userid(memid) {
+	var pattern= new RegExp(/^[a-z0-9_]+$/);
+	return pattern.test(memid);
+};
 </script>
 </html>

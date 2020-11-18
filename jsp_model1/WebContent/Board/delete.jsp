@@ -23,10 +23,11 @@
 		<script>
 		alert("삭제 성공");
 		location.href="boardList.jsp?pageNum=<%=pageNum%>";
-	</script><%
-	}
+	</script>
+	<%
+	} else {
+	%>
 	
-%>    
     
    
 <!DOCTYPE html>
@@ -36,5 +37,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script>
+		alert("본인이 작성한 글만 삭제할 수 있습니다.");
+		history.go(-1);
+	</script>
+<%} %>
 </body>
 </html>

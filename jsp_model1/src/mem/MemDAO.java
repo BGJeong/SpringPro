@@ -41,7 +41,7 @@ public class MemDAO {
 		int result = 0;
 		query = new StringBuffer("insert into mem values (");
 		query.append("mem_seq.nextval, ?, ?, ?, 'Y', 'N', 'name','nick', ");
-		query.append("'N', sysdate, null, 'N') ");
+		query.append("'N', sysdate, null, 'N', null) ");
 		conn = getConnection();
 		pstmt = conn.prepareStatement(query.toString());
 		pstmt.setString(1, user.getMem_uid());
@@ -84,5 +84,29 @@ public class MemDAO {
 		}
 		disconnection();
 		return user;
+	}
+	public int checkUserName(String id) throws Exception {
+		query = new StringBuffer("select mem_uid from mem where mem_uid=?");
+		conn = getConnection();
+		pstmt = conn.prepareStatement(query.toString());
+		pstmt.setString(1, id);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	public String getPass(String id) throws Exception {
+		String p = "";
+		query = new StringBuffer("select mem_passwd from me where mem_uid = ?");
+		conn = getConnection();
+		pstmt = conn.prepareStatement(query.toString());
+		pstmt.setString(1, id);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			p = rs.getString(1);
+		} 
+		return p;
 	}
 }

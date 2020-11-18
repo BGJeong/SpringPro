@@ -43,7 +43,7 @@ $(function() {
 			    url:'menu.html',
 			    dataType:"html",
 			    success: function(data){	     // 서버로부터 응답받은 데이터는 콜백함수의 매개변수로 전달된다.	    	
-		$('#message2').html($(data).find('li')); // menu.html문서의 내용중 li엘리먼트만 읽어서 id가 message2인
+					$('#message2').html($(data).find('li')); // menu.html문서의 내용중 li엘리먼트만 읽어서 id가 message2인
 			    }										     // 엘리먼트에 설정한다.
 		    });
 			return false;   

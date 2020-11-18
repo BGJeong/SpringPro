@@ -15,6 +15,7 @@ public class MemDTO {
 	private Date mem_regtime;
 	private Date mem_logtime;
 	private String mem_is_super;
+	private String mem_newpass;
 	
 	public int getMem_idx() {
 		return mem_idx;
@@ -87,6 +88,12 @@ public class MemDTO {
 	}
 	public void setMem_is_super(String mem_is_super) {
 		this.mem_is_super = mem_is_super;
+	}
+	public String getMem_newpass() {
+		return mem_newpass;
+	}
+	public void setMem_newpass(String mem_newpass) {
+		this.mem_newpass = mem_newpass;
 	}
 	
 	

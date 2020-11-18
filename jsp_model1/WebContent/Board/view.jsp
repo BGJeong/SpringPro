@@ -3,6 +3,11 @@
 <%@ page import="board.BoardDTO" %>
 <%@ page import="board.BoardDAO" %>
 <%
+	request.setCharacterEncoding("UTF-8");	
+	String userID = null;
+	if (session.getAttribute("userID") != null) {
+		userID = (String) session.getAttribute("userID");
+	}
 	int param = Integer.parseInt(request.getParameter("Boardid"));
 	int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 	BoardDAO dao = BoardDAO.getInstance();
@@ -31,6 +36,10 @@
 					<td><%=user.getBoardtitle() %></td>
 				</tr>
 				<tr>
+					<td>작성자</td>
+					<td><%=user.getMem_uid() %></td>
+				</tr>
+				<tr>
 					<td>글 내용</td>
 					<td><%=user.getBoardcontent() %></td>
 				</tr>
@@ -40,8 +49,12 @@
 				</tr>
 			</table>
 			<a href="boardList.jsp?pageNum=<%=pageNum%>" class = "btn btn-dark">목록</a>
+			<%
+				if(userID.equals(user.getMem_uid())){
+			%>
 			<a href="update.jsp?Boardid=<%=param%>&pageNum=<%=pageNum %>" class="btn btn-primary">수정</a>
 			<a href="delete.jsp?Boardid=<%=param%>&pageNum=<%=pageNum %>" class="btn btn-danger">삭제</a>
+			<%} %>
 		</div>
 	</div>
 </body>

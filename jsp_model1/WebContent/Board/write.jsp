@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,6 +101,7 @@
 			</table>
 			<input type="submit" value="작성" class="btn btn-dark pull-right">
 			<input type="reset" value="취소" class="btn btn-dark pull-right">
+			<a href="boardList.jsp?pageNum=${param.pageNum}" class="btn btn-dark" value="목록">목록</a>
 			
 		</form>
 	</div>

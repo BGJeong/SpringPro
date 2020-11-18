@@ -7,6 +7,7 @@
 	int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 	BoardDAO dao = BoardDAO.getInstance();
 	BoardDTO user = dao.getView(param);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -43,7 +44,7 @@
 					class="btn btn-dark">취소</a>
 				<input name="pageNum" type="hidden" value="<%=pageNum%>">
 				<input name="boardid" type="hidden" value="<%=user.getBoardid()%>">
-				<button type="submit" class="btn btn-primary">수정</button>
+				<button type="submit" class="btn btn-primary">완료</button>
 				
 			</form>
 		</div>

@@ -30,7 +30,7 @@
 			<div class="col-3"></div>
 			<div class="col-3">아이디</div>
 			<div class="col-3">
-				<input class="form-control" type="text" id="idtext" value="<%=dto.getMem_uid()%>">
+				<input class="form-control" name="mem_uid" type="text" id="idtext" value="<%=dto.getMem_uid()%>">
 			</div>
 			<div class="col-3"></div>
 		</div>
@@ -38,13 +38,13 @@
 			<div class="col-3"></div>
 			<div class="col-3">비밀번호</div>
 			<div class="col-3"><strong>********</strong></div>
-			<div class="col-3"><input class="btn btn-dark" type="button" value="변경"></div>
+			<div class="col-3"><input id="change" class="btn btn-dark" type="button" value="변경"></div>
 		</div>
 		<div class="row mt-3">
 			<div class="col-3"></div>
 			<div class="col-3">이메일</div>
 			<div class="col-3">
-				<input class="form-control" type="text" id="idtext" value="<%=dto.getMem_email()%>">
+				<input class="form-control" type="text" id="emailtext" value="<%=dto.getMem_email()%>">
 			</div>
 			<div class="col-3"></div>
 		</div>
@@ -52,7 +52,7 @@
 			<div class="col-3"></div>
 			<div class="col-3">가입일</div>
 			<div class="col-3">
-				<input class="form-control" type="text" id="idtext" value="<%=dto.getMem_regtime()%>">
+				<input class="form-control" type="text" id="datetext" value="<%=dto.getMem_regtime()%>">
 			</div>
 			<div class="col-3"></div>
 		</div>
@@ -66,14 +66,6 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-<script>
-	$(function(){
-		$(".form-control").attr("readOnly", "readOnly");
-		
-	});
-
-
-</script>
 </body>
+
 </html>
