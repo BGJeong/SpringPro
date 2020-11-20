@@ -4,6 +4,7 @@ package board;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -54,6 +55,44 @@ public class BoardDBBean {
 		disconnection();
 		return result;
 	}
-	
+	public ArrayList<BoardDataBean> getList() throws Exception {
+		query = new StringBuffer("select * from board0 order by num desc");
+		conn = getConnection();
+		ArrayList<BoardDataBean> list = new ArrayList<BoardDataBean>();
+		pstmt = conn.prepareStatement(query.toString());
+		rs = pstmt.executeQuery();
+		while(rs.next()) {
+			BoardDataBean user = new BoardDataBean();
+			user.setNum(rs.getInt(1));
+			user.setWriter(rs.getString(2));
+			user.setEmail(rs.getString(3));
+			user.setSubject(rs.getString(4));
+			user.setPasswd(rs.getString(5));
+			user.setReg_date(rs.getTimestamp(6));
+			user.setReadcount(rs.getInt(7));
+			user.setContent(rs.getString(8));
+			user.setIp(rs.getString(9));
+			list.add(user);
+		}
+		disconnection();
+		return list;
+	}
 
+	public int getCount() throws Exception {
+		query = new StringBuffer("select count(*) from board0");
+		conn = getConnection();
+		pstmt = conn.prepareStatement(query.toString());
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			return rs.getInt(1);
+		}
+		disconnection();
+		return 0;
+	}
+	
+	public ArrayList<BoardDataBean> getList(int startRow, int endRow) throws Exception {
+		ArrayList<BoardDataBean> list = new ArrayList<BoardDataBean>();
+		
+		return list;
+	}
 }

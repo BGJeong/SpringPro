@@ -11,7 +11,18 @@
 	BoardDBBean dao = BoardDBBean.getInstance();
 	int result = dao.writeAction(bean);
 	if(result == 1) {
-		System.out.println("ㅎㅇ");
+	%>
+	<script>
+		alert('작성성공');
+		location.href="boardList.jsp";
+	</script>
+	<%} else {
+%>		
+	<script>
+		alert('작성 실패');
+		history.go(-1);
+	</script>	
+<%
 	}
 
 
