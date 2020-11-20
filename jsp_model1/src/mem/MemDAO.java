@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 public class MemDAO {
 	Connection conn;
 	PreparedStatement pstmt;
@@ -20,11 +24,9 @@ public class MemDAO {
 		return instance;
 	}
 	public Connection getConnection() throws Exception {
-		String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-		String dbId = "scott";
-		String dbPass = "tiger";
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
+		Context init = new InitialContext();
+  		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/orcl");
+  		Connection con = ds.getConnection();
 		return con;
 	}
 

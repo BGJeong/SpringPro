@@ -1,11 +1,13 @@
 package board;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Date;
 import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 public class BoardDAO {
 
@@ -23,12 +25,9 @@ public class BoardDAO {
 	}
 
 	public Connection getConnection() throws Exception {
-		String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-		String dbId = "scott";
-		String dbPass = "tiger";
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
-		return con;
+		Context init = new InitialContext();
+  		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/orcl");
+  		return ds.getConnection();
 	}
 
 	public void disconnection() throws Exception {

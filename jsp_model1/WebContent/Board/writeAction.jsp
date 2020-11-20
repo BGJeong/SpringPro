@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="board.BoardDAO"%>
 <%@ page import="board.BoardDTO"%>
 <jsp:useBean id="writeBean" class="board.BoardDTO"></jsp:useBean>
 <jsp:setProperty name="writeBean" property="*"></jsp:setProperty>
 <%
-	request.setCharacterEncoding("UTF-8");
 	BoardDTO bean = new BoardDTO();
 	BoardDAO dao = BoardDAO.getInstance();
 	request.getParameter("");
